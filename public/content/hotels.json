@@ -1,0 +1,51 @@
+[
+    {
+      "name": "Hotel Ouro Palace",
+      "address": "Rua Exemplo, 123, Ouro Preto, MG",
+      "link": "https://www.fake-hotel-ouro-palace.com",
+      "phone": "(31) 9999-9999"
+    },
+    {
+      "name": "Pousada Colonial Dream",
+      "address": "Rua dos Sonhos, 45, Ouro Preto, MG",
+      "link": "https://www.fake-pousada-colonial.com",
+      "phone": "(31) 8888-8888"
+    },
+    {
+      "name": "Historic Inn",
+      "address": "Rua do Patrimonio, 789, Ouro Preto, MG",
+      "link": "https://www.fake-historic-inn.com",
+      "phone": "(31) 7777-7777"
+    },
+    {
+      "name": "Casa Ouro Verde",
+      "address": "Rua da Prata, 101, Ouro Preto, MG",
+      "link": "https://www.fake-casa-ouro-verde.com",
+      "phone": "(31) 6666-6666"
+    },
+    {
+      "name": "Hotel Imperial das Flores",
+      "address": "Avenida Florido, 232, Ouro Preto, MG",
+      "link": "https://www.fake-hotel-imperial.com",
+      "phone": "(31) 5555-5555"
+    },
+    {
+      "name": "Pousada Vista Real",
+      "address": "Travessa Real, 12, Ouro Preto, MG",
+      "link": "https://www.fake-pousada-vista-real.com",
+      "phone": "(31) 4444-4444"
+    },
+    {
+      "name": "Ouro Preto Boutique Hotel",
+      "address": "Rua Direita, 567, Ouro Preto, MG",
+      "link": "https://www.fake-ouro-preto-boutique.com",
+      "phone": "(31) 3333-3333"
+    },
+    {
+      "name": "Pousada das Montanhas",
+      "address": "Estrada das Montanhas, 99, Ouro Preto, MG",
+      "link": "https://www.fake-pousada-das-montanhas.com",
+      "phone": "(31) 2222-2222"
+    }
+  ]
+  

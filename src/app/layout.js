@@ -15,6 +15,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';
 import Link from 'next/link';
 import Collapse from '@mui/material/Collapse';
@@ -26,10 +27,10 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2', // your preferred primary color
+      main: '#646D34', // your preferred primary color
     },
     secondary: {
-      main: '#9c27b0', // your preferred secondary color
+      main: '#A4B372', // your preferred secondary color
     },
     background: {
       default: '#f5f5f5', // global background color behind content
@@ -41,9 +42,33 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Roboto, sans-serif',
+    fontFamily: 'LaBohemia',
     h6: {
       fontWeight: 600,
+    },
+  },
+  typography: {
+    fontFamily: 'Poppins',
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        @font-face {
+          font-family: 'LaBohemia';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 400;
+          src: local('LaBohemia'), url('/LaBohemia.ttf');
+        }
+        @font-face {
+          font-family: 'Poppins';
+          font-style: normal;
+          font-display: swap;
+          font-weight: 400;
+          src: local('Poppins'), url('/fonts/Poppins-Light.ttf');
+        }
+
+      `,
     },
   },
 });
@@ -53,6 +78,8 @@ export default function RootLayout(props) {
 
   // State for tracking which menus are open
   const [openMenus, setOpenMenus] = React.useState({});
+
+  const [catMode, setCatMode] = React.useState(false);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -70,19 +97,23 @@ export default function RootLayout(props) {
   };
 
   const navLinks = [
-    { label: 'Home', href: '/' },
-    { label: 'Nosso Blog', href: '/blog' },
-    { label: 'Dicas', subLinks: [
-        { label: 'Hoteis', href: '/infos/hotels' },
-        { label: 'Restaurantes', href: '/infos/restaurants' },
-        { label: 'Como Chegar?', href: '/infos/map' },
-        { label: 'Mais dicas', href: '/infos/tips' },
-    ] },
-    { label: 'Presentes', subLinks: [
-        { label: 'Lista de presentes', href: '/presents' },
-        { label: 'Pagmentos', href: '/payment' },
-    ] },
-    { label: 'RSVP', href: '/rsvp' },
+    { label: 'Casa', href: '/' },
+    // { label: 'Nosso Blog', href: '/blog' },
+    // {
+    //   label: 'Dicas', subLinks: [
+    //     { label: 'Hoteis', href: '/infos/hotels' },
+    //     { label: 'Restaurantes', href: '/infos/restaurants' },
+    //     { label: 'Como Chegar?', href: '/infos/map' },
+    //     { label: 'Mais dicas', href: '/infos/tips' },
+    //   ]
+    // },
+    // {
+    //   label: 'Presentes', subLinks: [
+    //     { label: 'Lista de presentes', href: '/presents' },
+    //     { label: 'Pagmentos', href: '/payment' },
+    //   ]
+    // },
+    // { label: 'RSVP', href: '/rsvp' },
     { label: 'Entre em contato', href: '/contact' },
   ];
 
@@ -110,7 +141,7 @@ export default function RootLayout(props) {
           </IconButton>
         </Box>
 
-        <List sx={{width: '100%'}}>
+        <List sx={{ width: '100%' }}>
           {navLinks.map((link) => (
             <React.Fragment key={link.label}>
               {link.subLinks ? (
@@ -130,10 +161,10 @@ export default function RootLayout(props) {
                   </ListItem>
                   <Collapse in={openMenus[link.label]} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding
-                        sx={{ 
-                          backgroundColor: 'rgba(0,0,0,0.05)' // A light grey background
-                        }}
-                     >
+                      sx={{
+                        backgroundColor: 'rgba(0,0,0,0.05)' // A light grey background
+                      }}
+                    >
                       {link.subLinks.map((subLink) => (
                         <ListItem key={subLink.label} disablePadding>
                           <Link
@@ -146,8 +177,8 @@ export default function RootLayout(props) {
                             }}
                           >
                             <ListItemButton sx={{ display: 'flex', justifyContent: 'center' }}>
-                              <ListItemText primary={subLink.label} sx={{ textAlign: 'center' }} 
-                              primaryTypographyProps={{ fontSize: '0.875rem' }}
+                              <ListItemText primary={subLink.label} sx={{ textAlign: 'center' }}
+                                primaryTypographyProps={{ fontSize: '0.875rem' }}
                               />
                             </ListItemButton>
                           </Link>
@@ -184,7 +215,7 @@ export default function RootLayout(props) {
         <Divider />
         <Box sx={{ p: 2, textAlign: 'center' }}>
           <Typography variant="body2" color="text.secondary">
-            © {new Date().getFullYear()} My Company
+            © {new Date().getFullYear()} Bu e Gui Designs
           </Typography>
         </Box>
       </Box>
@@ -197,35 +228,61 @@ export default function RootLayout(props) {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <AppRouterCacheProvider>
-            <FallingLeavesBackground />
-  
+            <FallingLeavesBackground catMode={catMode}/>
+
             <AppBar position="sticky" color="primary">
               <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Link href="/" style={{ textDecoration: 'none', color: 'inherit', display: 'flex', alignItems: 'center' }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <Typography variant="h6" component="div" sx={{ mr: 2 }}>
-                      LOGO
+                {/* First Link / Logo */}
+                <Link
+                  href="/"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    display: 'flex',
+                    alignItems: 'center',
+                  }}
+                >
+                  <Box
+                    sx={{
+                      // Provide a fixed width/height (or use responsive values)
+                      width: 60,
+                      height: 60,
+                      // The magic: use mask to "paint" with current text color
+                      mask: 'url("/monograma.svg") no-repeat center',
+                      maskSize: 'contain',
+                      WebkitMask: 'url("/monograma.svg") no-repeat center',
+                      WebkitMaskSize: 'contain',
+                      backgroundColor: 'currentColor',
+                    }}
+                  />
+                </Link>
+
+                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                  {/* Second Link / My Wedding */}
+                  <Link
+                    href="/"
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    <Typography
+                      variant="h7"
+                      component="div"
+                      sx={{ flexGrow: 1, textAlign: 'center', fontFamily: 'LaBohemia' }}
+                    >
+                      Bruna & Guilherme
                     </Typography>
-                  </Box>
-                </Link>
-  
-                <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>
-                    My Application
-                  </Typography>
-                </Link>
-  
+                  </Link>
+                </Box>
                 <IconButton
                   edge="end"
                   color="inherit"
                   aria-label="menu"
                   onClick={toggleDrawer(true)}
                 >
-                  <MenuIcon size='small' />
+                  <MenuIcon />
                 </IconButton>
               </Toolbar>
             </AppBar>
-  
+
             <Drawer
               anchor="right"
               open={drawerOpen}
@@ -244,16 +301,22 @@ export default function RootLayout(props) {
             >
               {drawerContent}
             </Drawer>
-  
+
             {/* Main Content Area */}
-            <Box component="main" sx={{ p: 2, position: 'relative', minHeight: '100vh' }}>
+            <Box component="main" sx={{ position: 'relative', minHeight: '100vh' }}>
               {props.children}
             </Box>
-  
+
             {/* Global Footer */}
             <Box component="footer" sx={{ textAlign: 'center', p: 2, bgcolor: 'background.paper' }}>
+
               <Typography variant="body2" color="text.secondary">
-                © {new Date().getFullYear()} My Company | <Link href="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link>
+                <Button onClick={() => {
+                  setCatMode(!catMode);
+                  console.log('cat mode' + catMode)
+                  }}>
+                  © {new Date().getFullYear()} Bu e Gui Designs </Button>| <Link href="/contact" style={{}} >Contact</Link>
+
               </Typography>
             </Box>
           </AppRouterCacheProvider>
@@ -261,5 +324,5 @@ export default function RootLayout(props) {
       </body>
     </html>
   );
-  
+
 }

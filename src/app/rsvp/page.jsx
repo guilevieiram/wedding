@@ -6,8 +6,8 @@ import GlassCard from '../(components)/glassCard'
 export default function Page() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-  const [convidados, setConvidados] = useState('')
-  const [kids, setKids] = useState('')
+  const [convidados, setConvidados] = useState(0)
+  const [kids, setKids] = useState(0)
 
   const [modalOpen, setModalOpen] = useState(false)
   const [modalMessage, setModalMessage] = useState('')
@@ -23,22 +23,32 @@ export default function Page() {
       kids: parseInt(kids, 10) || 0,
       timestamp: new Date().toISOString(),
     }
-
-    // Generate a random key for the JSON file
-    const randomKey = `rsvp/${Date.now()}-${Math.floor(Math.random()*100000)}.json`
-
     try {
-      const response = await fetch('/api/s3/write', {
+      const response = await fetch('/api/rsvp', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key: 'folder/test.json', data: { message: 'Hello, S3!' } })
+        body: JSON.stringify(data)
       });
-    
-      const result = await response.json();
-      console.log({result})
 
-      await writeJsonToS3(randomKey, data)
-      setModalMessage('Your RSVP has been submitted successfully!')
+      const result = await response.json();
+      console.log({ result })
+
+      if (response.status === 400) {
+        const message = result.message
+        setModalMessage(`Nao foi possivel confirmar sua presenca... ${message}`)
+        setIsError(true)
+        setModalOpen(true)
+        return
+      }
+
+      if (response.status !== 200) {
+        setModalMessage(`Nao foi possivel confirmar sua presenca...`)
+        setIsError(true)
+        setModalOpen(true)
+        return
+      }
+
+      setModalMessage('Sua presenca foi confirmada com sucesso!')
       setIsError(false)
       setModalOpen(true)
       // Clear form on success
@@ -47,18 +57,11 @@ export default function Page() {
       setConvidados('')
       setKids('')
     } catch (error) {
-      console.error('Error writing to S3:', error)
       setModalMessage('An error occurred while submitting your RSVP. Please contact us for assistance.')
       setIsError(true)
       setModalOpen(true)
     }
   }
-  useEffect(() => {
-    fetch('/api/hello')
-      .then(response => response.text())
-      .then(data => console.log(data));
-  }, []);
-
 
   return (
     <Box
@@ -75,40 +78,38 @@ export default function Page() {
           <Typography variant="h5" gutterBottom>
             Confirme sua presenca!
           </Typography>
-          
+
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-            <TextField 
-              label="First Name" 
-              variant="outlined" 
+            <TextField
+              label="Nome"
+              variant="outlined"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)} 
-              required 
+              onChange={(e) => setFirstName(e.target.value)}
+              required
             />
-            <TextField 
-              label="Last Name" 
-              variant="outlined" 
+            <TextField
+              label="Sobrenome"
+              variant="outlined"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)} 
-              required 
+              onChange={(e) => setLastName(e.target.value)}
+              required
             />
-            <TextField 
-              label="Number of Convidados (Guests)" 
-              variant="outlined" 
+            <TextField
+              label="Numero de convidados"
+              variant="outlined"
               type="number"
               value={convidados}
-              onChange={(e) => setConvidados(e.target.value)} 
-              required 
+              onChange={(e) => setConvidados(e.target.value)}
             />
-            <TextField 
-              label="Number of Kids" 
-              variant="outlined" 
+            <TextField
+              label="Numero de criancas"
+              variant="outlined"
               type="number"
               value={kids}
-              onChange={(e) => setKids(e.target.value)} 
-              required 
+              onChange={(e) => setKids(e.target.value)}
             />
             <Button variant="contained" type="submit">
-              Submit RSVP
+              Confirmar
             </Button>
           </form>
         </CardContent>
@@ -122,7 +123,7 @@ export default function Page() {
         BackdropProps={{ timeout: 500 }}
       >
         <Fade in={modalOpen}>
-          <Box 
+          <Box
             sx={{
               position: 'absolute',
               top: '50%',
@@ -136,16 +137,16 @@ export default function Page() {
               textAlign: 'center',
             }}
           >
-            <Typography variant="h6" gutterBottom>{isError ? 'Error' : 'Success'}</Typography>
+            <Typography variant="h6" gutterBottom>{isError ? 'Oops...' : 'Yay!'}</Typography>
             <Typography variant="body1" gutterBottom>{modalMessage}</Typography>
             {isError && (
               <Typography variant="body2">
-                Please <Link href="/contacts">contact us</Link> for help.
+                Entre em contato <Link href="/contact">aqui</Link> para tirar qualquer duvida.
               </Typography>
             )}
             <Box mt={2}>
               <Button variant="contained" onClick={() => setModalOpen(false)}>
-                Close
+                Fechar
               </Button>
             </Box>
           </Box>

@@ -1,3 +1,5 @@
+import { readConvidados } from "@/lib/convidados";
 export async function GET(request) {
-    return new Response('Hello, world!', { status: 200 });
-  }
+  const conv = readConvidados()
+  return new Response(JSON.stringify({ conv: conv }), { status: 200 });
+}
