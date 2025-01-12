@@ -36,7 +36,7 @@ export default function Page() {
           }}
         />
       </Box>
-      <Box sx={{ py: 10 }}>
+      <Box sx={{ py: 5}}>
 
         <HorizontalSeparator />
       </Box>
@@ -48,7 +48,9 @@ export default function Page() {
           alignItems: 'flex-center',
           // minHeight: '100vh',
           width: '100%',
-          gap: 4,
+          m:'auto',
+          maxWidth:800,
+          gap: 2,
           p: 1,
         }}
       >
@@ -75,16 +77,10 @@ export default function Page() {
               A Beautiful Subtitle
             </Typography> */}
             <Typography variant="body2" textAlign={'justify'}>
-              Estamos felizes por compartilhar com você os preparativos do nosso casamento!
+            É uma alegria imensa dividir com você cada detalhe dos preparativos para o nosso casamento. Desde o primeiro encontro, lá na Praça da Liberdade, construímos juntos uma jornada cheia de descobertas, aventuras e momentos inesquecíveis.
             </Typography>
             <Typography variant="body2" textAlign={'justify'}>
-              Do início de namoro, na praça da liberdade, voamos muito até aqui!
-            </Typography>
-            <Typography variant="body2" textAlign={'justify'}>
-              Cidades especiais vieram, se foram, a gente se encontrando aqui e ali até escolhermos Londres como lar e Ouro Preto para dar testemunho desse sonho!
-            </Typography>
-            <Typography variant="body2" textAlign={'justify'}>
-              Esperamos ajudá-lo a se organizar por aqui, enquanto esperamos por suas digitais nesse encontro cuidadosamente idealizado para ser nossa obra de arte JUNTOS!
+            Entre tantas idas e vindas, escolhemos Londres como lar e Ouro Preto para testemunhar este sonho tão especial ao lado de quem amamos. Por aqui, queremos ajudar você a se organizar e, sobretudo, convidá-lo(a) a deixar suas marcas neste dia que sonhamos como uma verdadeira obra de arte criada a muitas mãos.
             </Typography>
             <Typography variant="body2" textAlign={'justify'}>
               Promete vir com a gente?
@@ -95,7 +91,7 @@ export default function Page() {
         <GlassCard>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <Typography variant="h5" gutterBottom>
-              O evento do ano
+              O evento do ano 😊
             </Typography>
             <Typography variant="body2" textAlign={'justify'}>
               Nosso casamento será realizado dia 2/8/25, às 16 horas, no Vila Relicário. Prepare-se para um lugar lindo, com a energia especialíssima das Montanhas de Ouro Preto!
@@ -133,10 +129,10 @@ export default function Page() {
               }}  
             >
               {/* <Button variant={'contained'} href="/infos/map">Como chegar</Button>
-              <Button variant={'contained'}href="/infos/hotels">Hotéis</Button>
               <Button variant={'contained'}href="/infos/restaurants">Restaurantes</Button>
               <Button variant={'contained'}href="/presents">Presentes</Button>
               <Button variant={'contained'}href="/rsvp">RSVP</Button> */}
+              <Button variant={'contained'}href="/infos/hotels">Hotéis</Button>
               <Button variant={'contained'}href="/contact">Contate-nos</Button>
             </Box>
           </CardContent>

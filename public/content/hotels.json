@@ -1,51 +1,75 @@
 [
     {
-      "name": "Hotel Ouro Palace",
-      "address": "Rua Exemplo, 123, Ouro Preto, MG",
-      "link": "https://www.fake-hotel-ouro-palace.com",
-      "phone": "(31) 9999-9999"
+      "name": "Hotal Solar das Lajes",
+      "address": "Rua Conselheiro Quintiliano, 604, Ouro Preto, MG",
+      "link": "https://hotelsolardaslajes.com.br",
+      "phone": "(31) 3551-3388"
     },
     {
-      "name": "Pousada Colonial Dream",
-      "address": "Rua dos Sonhos, 45, Ouro Preto, MG",
-      "link": "https://www.fake-pousada-colonial.com",
-      "phone": "(31) 8888-8888"
+      "name": "Hotel Solar do Rosário",
+      "address": "Rua Getúlio Vargas, 270, Ouro Preto, MG",
+      "link": "https://www.hotelsolardorosario.com.br",
+      "phone": "(31) 3551-5200"
     },
     {
-      "name": "Historic Inn",
-      "address": "Rua do Patrimonio, 789, Ouro Preto, MG",
-      "link": "https://www.fake-historic-inn.com",
-      "phone": "(31) 7777-7777"
+      "name": "Pousada do Mondego",
+      "address": "Largo de Coimbra, 38, Ouro Preto, MG",
+      "link": "https://www.pousadadomondego.com.br",
+      "phone": "(31) 3551-2040"
     },
     {
-      "name": "Casa Ouro Verde",
-      "address": "Rua da Prata, 101, Ouro Preto, MG",
-      "link": "https://www.fake-casa-ouro-verde.com",
-      "phone": "(31) 6666-6666"
+      "name": "Grade Hotel de Ouro Preto",
+      "address": "Rua Senador Rocha Lagoa, 162, Ouro Preto, MG",
+      "phone": "(31) 3551-1488",
+      "link": "https://www.grandehotelouropreto.com.br"
     },
     {
-      "name": "Hotel Imperial das Flores",
-      "address": "Avenida Florido, 232, Ouro Preto, MG",
-      "link": "https://www.fake-hotel-imperial.com",
-      "phone": "(31) 5555-5555"
+      "name": "Pousada Classica",
+      "address": "Rua Conde de Bobadela, 96, Ouro Preto, MG",
+      "phone": "(31) 3551-3663",
+      "link": "https://www.pousadaclassica.com.br"
     },
     {
-      "name": "Pousada Vista Real",
-      "address": "Travessa Real, 12, Ouro Preto, MG",
-      "link": "https://www.fake-pousada-vista-real.com",
-      "phone": "(31) 4444-4444"
+      "name": "Pousada Solar da Ópera",
+      "address": "Rua Conde de Bobadela, 75, Ouro Preto, MG",
+      "phone": "(31) 3551-6844",
+      "link": "https://www.pousadasolardaopera.com.br"
     },
     {
-      "name": "Ouro Preto Boutique Hotel",
-      "address": "Rua Direita, 567, Ouro Preto, MG",
-      "link": "https://www.fake-ouro-preto-boutique.com",
-      "phone": "(31) 3333-3333"
+      "name": "Pousada Colonial",
+      "address": "Travessa Padre Camilo Veloso, 26, Ouro Preto, MG",
+      "phone": "(31) 3551-3133",
+      "link": "https://www.hotelcolonial.com.br"
     },
     {
-      "name": "Pousada das Montanhas",
-      "address": "Estrada das Montanhas, 99, Ouro Preto, MG",
-      "link": "https://www.fake-pousada-das-montanhas.com",
-      "phone": "(31) 2222-2222"
+      "name": "Pousada Marotta",
+      "address": "Rua Conselheiro Quintiliano, 415, Ouro Preto, MG",
+      "phone": "(31) 3350-2411 / (31) 8511-4934",
+      "link": "https://www.pousadamarotta.com.br"
+    },
+    {
+      "name": "Pousada dos Ofícios",
+      "address": "Rua Padre Rolim, 765, Ouro Preto, MG",
+      "phone": "(31) 3551-7735",
+      "link": "https://www.pousadasdosoficios.com.br"
+    },
+    {
+      "name": "Boroni Palace Hotel",
+      "address": "Rua Padre Rolim, 600, Ouro Preto, MG",
+      "phone": "(31) 3551-5001",
+      "link": "https://www.boronipalace.com.br"
+    },
+    {
+      "name": "Hotel Solar de Maria",
+      "address": "Rua Tomé Afonso, 111, Ouro Preto, MG",
+      "phone": "(31) 3551-3150",
+      "link": "-"
+    },
+    {
+      "name": "Luxor Hotel",
+      "address": "Rua Doutor Alfredo Baeta, 16, Ouro Preto, MG",
+      "phone": "(31) 3551-2244",
+      "link": "https://www.hotelluxor.com.br"
     }
   ]
   

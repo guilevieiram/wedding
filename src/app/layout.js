@@ -27,7 +27,7 @@ import { ExpandLess, ExpandMore } from '@mui/icons-material';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#646D34', // your preferred primary color
+      main: '#465e40', // your preferred primary color
     },
     secondary: {
       main: '#A4B372', // your preferred secondary color
@@ -99,14 +99,14 @@ export default function RootLayout(props) {
   const navLinks = [
     { label: 'Casa', href: '/' },
     // { label: 'Nosso Blog', href: '/blog' },
-    // {
-    //   label: 'Dicas', subLinks: [
-    //     { label: 'Hoteis', href: '/infos/hotels' },
-    //     { label: 'Restaurantes', href: '/infos/restaurants' },
-    //     { label: 'Como Chegar?', href: '/infos/map' },
-    //     { label: 'Mais dicas', href: '/infos/tips' },
-    //   ]
-    // },
+    {
+      label: 'Dicas', subLinks: [
+        { label: 'Hotéis', href: '/infos/hotels' },
+        // { label: 'Restaurantes', href: '/infos/restaurants' },
+        // { label: 'Como Chegar?', href: '/infos/map' },
+        // { label: 'Mais dicas', href: '/infos/tips' },
+      ]
+    },
     // {
     //   label: 'Presentes', subLinks: [
     //     { label: 'Lista de presentes', href: '/presents' },

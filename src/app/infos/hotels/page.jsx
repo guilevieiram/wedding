@@ -33,9 +33,8 @@ export default function Page() {
         flexDirection: 'column',
         gap: 4,
         justifyContent: 'center',
-        alignItems: 'flex-start',
+        alignItems: 'center',
         width: 'full',
-        p: 2,
       }}
     >
 
@@ -52,7 +51,7 @@ export default function Page() {
             }}
           >
             <Typography variant="h4" gutterBottom>
-              Hoteis
+              Hotéis
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>

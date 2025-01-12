@@ -37,7 +37,7 @@ export const FallingLeavesBackground = ({
         
         this.speed = speedMin + Math.random() * (speedMax - speedMin);
         this.angle = Math.random() * 2 * Math.PI;
-        this.angularSpeed = Math.random() * 0.1 - 0.01;
+        this.angularSpeed = Math.random() * 0.05 - 0.01;
         
         // Random initial position
         this.x = Math.random() * canvas.width;
@@ -77,7 +77,7 @@ export const FallingLeavesBackground = ({
 
       update(canvas) {
         this.y += this.speed;
-        this.x += Math.sin(this.angle) * 3;
+        this.x += Math.sin(this.angle) * 1;
         this.angle += this.angularSpeed;
 
         // Respawn when out of screen
@@ -122,8 +122,8 @@ export const FallingLeavesBackground = ({
           blur: true,
           sizeMin: 10,
           sizeMax: 20,
-          speedMin: 0.5,
-          speedMax: 2,
+          speedMin: 0.1,
+          speedMax: .5,
         })
       );
     }
@@ -137,8 +137,8 @@ export const FallingLeavesBackground = ({
           blur: false,
           sizeMin: 20,
           sizeMax: 30,
-          speedMin: 1,
-          speedMax: 5,
+          speedMin: .5,
+          speedMax: 1,
         })
       );
     }
