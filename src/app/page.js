@@ -3,6 +3,7 @@ import GlassCard from './(components)/glassCard'
 import { CountdownClock } from './(components)/clock'
 import HorizontalSeparator from './(components)/serparator'
 import { MyLink } from './(components)/link'
+import Carousel from './(components)/carousel'
 
 export default function Page() {
   return (
@@ -102,6 +103,7 @@ export default function Page() {
           </CardContent>
         </GlassCard>
 
+        <Carousel/>
         <GlassCard>
           <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
             <Typography variant="h5" gutterBottom>
@@ -133,6 +135,8 @@ export default function Page() {
               <Button variant={'contained'}href="/presents">Presentes</Button>
               <Button variant={'contained'}href="/rsvp">RSVP</Button> */}
               <Button variant={'contained'}href="/infos/hotels">Hotéis</Button>
+              <Button variant={'contained'}href="/infos/restaurants">Restaurantes</Button>
+              <Button variant={'contained'}href="/infos/salon">Salões</Button>
               <Button variant={'contained'}href="/contact">Contate-nos</Button>
             </Box>
           </CardContent>

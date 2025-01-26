@@ -47,6 +47,7 @@ export default function Page() {
               gap: 2,
               justifyContent: 'center',
               alignItems: 'center',
+              textAlign: 'justify',
               p: 2,
             }}
           >
@@ -64,7 +65,7 @@ export default function Page() {
 
       <HorizontalSeparator />
       {
-        !hotelsData ? <LinearProgress /> :
+        hotelsData.length===0 ? <LinearProgress /> :
           <Box sx={{ width: '100%' }}>
 
             <List >

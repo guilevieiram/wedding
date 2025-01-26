@@ -102,7 +102,8 @@ export default function RootLayout(props) {
     {
       label: 'Dicas', subLinks: [
         { label: 'Hotéis', href: '/infos/hotels' },
-        // { label: 'Restaurantes', href: '/infos/restaurants' },
+        { label: 'Restaurantes', href: '/infos/restaurants' },
+        { label: 'Salões', href: '/infos/salon' },
         // { label: 'Como Chegar?', href: '/infos/map' },
         // { label: 'Mais dicas', href: '/infos/tips' },
       ]

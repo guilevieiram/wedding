@@ -15,11 +15,11 @@ import HorizontalSeparator from '@/app/(components)/serparator';
 import { useState, useEffect } from 'react';
 
 export default function Page() {
-  const [restaurantData, setRestaurantData] = useState([])
+  const [hotelsData, setHotelsData] = useState([])
   useEffect(() => {
-    fetch('/content/resto.json')
+    fetch('/content/salao.json')
       .then((response) => response.json())
-      .then((data) => setRestaurantData(data))
+      .then((data) => setHotelsData(data))
       .catch((error) => {
         console.error('Error fetching JSON:', error);
       });
@@ -52,11 +52,14 @@ export default function Page() {
             }}
           >
             <Typography variant="h4" gutterBottom>
-              Restaurantes
+              Salões
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-              Seguem aqui algumas sugestões de bons restaurantes nas proximidades para saciar a fome durante sua estadia conosco.
+              Tomamos a liberdade de listar profissionais em Ouro Preto para ajuda-lo(a)
+            </Typography>
+            <Typography variant="body" gutterBottom>
+              Importante agendar previamente seu horário de preferência.
             </Typography>
           </Box>
         </CardContent>
@@ -64,7 +67,7 @@ export default function Page() {
 
       <HorizontalSeparator />
       {
-        restaurantData.length===0 ? <LinearProgress /> :
+        !hotelsData ? <LinearProgress /> :
           <Box sx={{ width: '100%' }}>
 
             <List >
@@ -77,7 +80,7 @@ export default function Page() {
                   alignItems: 'center',
                 }}
               >
-                {restaurantData.map((hotel) => (
+                {hotelsData.map((hotel) => (
                   <GlassCard key={hotel.name} sx={{ width: '100%' }} >
                     <CardContent >
                       <ListItem alignItems="flex-start">
@@ -85,16 +88,16 @@ export default function Page() {
                           primary={hotel.name}
                           secondary={
                             <>
-                              {/* <Typography variant="body2">{hotel.address}</Typography> */}
+                              <Typography variant="body2">{hotel.address}</Typography>
                               <Typography variant="body2">{hotel.phone}</Typography>
-                              {/* <Link
+                              <Link
                                 href={hotel.link}
                                 target="_blank"
                                 rel="noopener"
                                 variant="body2"
                               >
                                 {hotel.link}
-                              </Link> */}
+                              </Link>
                             </>
                           }
                         />

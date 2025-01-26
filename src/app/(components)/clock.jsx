@@ -17,8 +17,8 @@ import {
 
 // Example of a custom style wrapper for each time segment
 const TimeBox = styled(Paper)(({ theme }) => ({
-  width: '70px',
-  height: '70px',
+  width: '50px',
+  height: '50px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
