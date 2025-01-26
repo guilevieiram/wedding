@@ -224,12 +224,15 @@ export default function RootLayout(props) {
   );
 
   return (
-    <html lang="en">
+    <html lang="pt">
+      <head>
+        <title>Bu & Gui 👰🤵</title>
+      </head>
       <body style={{ margin: 0 }}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <AppRouterCacheProvider>
-            <FallingLeavesBackground catMode={catMode}/>
+            <FallingLeavesBackground catMode={catMode} />
 
             <AppBar position="sticky" color="primary">
               <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -315,7 +318,7 @@ export default function RootLayout(props) {
                 <Button onClick={() => {
                   setCatMode(!catMode);
                   console.log('cat mode' + catMode)
-                  }}>
+                }}>
                   © {new Date().getFullYear()} Bu e Gui Designs </Button>| <Link href="/contact" style={{}} >Contact</Link>
 
               </Typography>

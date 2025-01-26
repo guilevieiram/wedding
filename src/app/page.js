@@ -113,7 +113,7 @@ export default function Page() {
               Neste site você encontrará as principais informações para curtir esse evento: Como chegar, onde ficar, o que usar, como nos presentear, ...
             </Typography>
             <Typography variant="body2" textAlign={'justify'}>
-              Caso haja quaisquer dúvidas, não hesite a contactar os noivos, pais, tios e organizadores. Os detalhes de contato podem ser encontrados na {' '}
+              Caso haja quaisquer dúvidas, não hesite em contactar os noivos, pais, tios e organizadores. Os detalhes de contato podem ser encontrados na {' '}
               <MyLink href='/contact' >página de contatos</MyLink>.
             </Typography>
 

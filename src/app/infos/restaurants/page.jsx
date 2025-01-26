@@ -15,7 +15,8 @@ import HorizontalSeparator from '@/app/(components)/serparator';
 import { useState, useEffect } from 'react';
 
 export default function Page() {
-  const [restaurantData, setRestaurantData] = useState([])
+  const [restaurantData, setRestaurantData] = useState([]);
+
   useEffect(() => {
     fetch('/content/resto.json')
       .then((response) => response.json())
@@ -24,7 +25,6 @@ export default function Page() {
         console.error('Error fetching JSON:', error);
       });
   }, []);
-
 
   return (
     <Box
@@ -37,7 +37,6 @@ export default function Page() {
         width: 'full',
       }}
     >
-
       <GlassCard>
         <CardContent>
           <Box
@@ -63,11 +62,13 @@ export default function Page() {
       </GlassCard>
 
       <HorizontalSeparator />
-      {
-        restaurantData.length===0 ? <LinearProgress /> :
-          <Box sx={{ width: '100%' }}>
 
-            <List >
+      {
+        restaurantData.length === 0 ? (
+          <LinearProgress />
+        ) : (
+          <Box sx={{ width: '100%' }}>
+            <List>
               <Box
                 sx={{
                   display: 'flex',
@@ -77,24 +78,65 @@ export default function Page() {
                   alignItems: 'center',
                 }}
               >
-                {restaurantData.map((hotel) => (
-                  <GlassCard key={hotel.name} sx={{ width: '100%' }} >
-                    <CardContent >
+                {restaurantData.map((resto) => (
+                  <GlassCard key={resto.name} sx={{ width: '100%' }}>
+                    <CardContent>
                       <ListItem alignItems="flex-start">
                         <ListItemText
-                          primary={hotel.name}
+                          primary={resto.name}
                           secondary={
                             <>
-                              {/* <Typography variant="body2">{hotel.address}</Typography> */}
-                              <Typography variant="body2">{hotel.phone}</Typography>
-                              {/* <Link
-                                href={hotel.link}
-                                target="_blank"
-                                rel="noopener"
-                                variant="body2"
-                              >
-                                {hotel.link}
-                              </Link> */}
+                              {/* Address (opens Google Maps if clicked) */}
+                              {resto.address && (
+                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                  <Link
+                                    href={`https://maps.google.com/?q=${encodeURIComponent(resto.address)}`}
+                                    target="_blank"
+                                    rel="noopener"
+                                  >
+                                    {resto.address}
+                                  </Link>
+                                </Typography>
+                              )}
+
+                              {/* Phone (opens phone dialer if clicked) */}
+                              {resto.phone && (
+                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                  <Link href={`tel:${resto.phone}`}>
+                                    {resto.phone}
+                                  </Link>
+                                </Typography>
+                              )}
+
+                              {/* Website (opens in new tab) */}
+                              {resto.website && (
+                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                  <Link
+                                    href={resto.website}
+                                    target="_blank"
+                                    rel="noopener"
+                                  >
+                                    {resto.website}
+                                  </Link>
+                                </Typography>
+                              )}
+
+                              {/* Instagram (opens Instagram profile) */}
+                              {resto.instagram && (
+                                <Typography variant="body2" sx={{ mt: 1 }}>
+                                  <Link
+                                    href={
+                                      resto.instagram.startsWith('http')
+                                        ? resto.instagram
+                                        : `https://instagram.com/${resto.instagram.replace('@', '')}`
+                                    }
+                                    target="_blank"
+                                    rel="noopener"
+                                  >
+                                    {resto.instagram}
+                                  </Link>
+                                </Typography>
+                              )}
                             </>
                           }
                         />
@@ -105,6 +147,7 @@ export default function Page() {
               </Box>
             </List>
           </Box>
+        )
       }
     </Box>
   );
