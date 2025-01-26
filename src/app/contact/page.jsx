@@ -14,16 +14,16 @@ import GlassCard from '../(components)/glassCard'
 const contactData = [
   {
     name: 'Gabi Horta (Cerimonialista)',
-    tel: '+55 31 99105 4009 ',
-    email: 'Contato@gabihortaproducoes.com.br'
+    tel: '+55 31 98383 2323',
+    email: 'contato@gabihortaproducoes.com.br'
   },
   {
-    name: 'Bruna (Noiva)',
+    name: 'Bruna',
     tel: '+44 07860 667605',
     email: 'brunapafernandes@gmail.com'
   },
   {
-    name: 'Gui (Noivo)',
+    name: 'Guilherme',
     tel: '+44 07551 623670',
     email: 'guilevieiram@gmail.com'
   },
