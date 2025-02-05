@@ -132,11 +132,11 @@ export default function Page() {
             >
               {/* <Button variant={'contained'} href="/infos/map">Como chegar</Button>
               <Button variant={'contained'}href="/infos/restaurants">Restaurantes</Button>
-              <Button variant={'contained'}href="/presents">Presentes</Button>
               <Button variant={'contained'}href="/rsvp">RSVP</Button> */}
               <Button variant={'contained'}href="/infos/hotels">Hotéis</Button>
               <Button variant={'contained'}href="/infos/restaurants">Restaurantes</Button>
               <Button variant={'contained'}href="/infos/salon">Salões</Button>
+              <Button variant={'contained'}href="/infos/presents">Presentes</Button>
               <Button variant={'contained'}href="/contact">Contate-nos</Button>
             </Box>
           </CardContent>

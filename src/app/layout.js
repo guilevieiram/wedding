@@ -104,6 +104,7 @@ export default function RootLayout(props) {
         { label: 'Hotéis', href: '/infos/hotels' },
         { label: 'Restaurantes', href: '/infos/restaurants' },
         { label: 'Salões', href: '/infos/salon' },
+        { label: 'Presentes', href: '/infos/presents' },
         // { label: 'Como Chegar?', href: '/infos/map' },
         // { label: 'Mais dicas', href: '/infos/tips' },
       ]
