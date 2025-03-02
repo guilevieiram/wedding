@@ -137,6 +137,8 @@ export default function Page() {
               <Button variant={'contained'}href="/infos/restaurants">Restaurantes</Button>
               <Button variant={'contained'}href="/infos/salon">Salões</Button>
               <Button variant={'contained'}href="/infos/presents">Presentes</Button>
+              <Button variant={'contained'}href="/infos/dress">Dresscode</Button>
+              <Button variant={'contained'}href="/payment">Pagamentos</Button>
               <Button variant={'contained'}href="/contact">Contate-nos</Button>
             </Box>
           </CardContent>

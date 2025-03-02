@@ -105,6 +105,7 @@ export default function RootLayout(props) {
         { label: 'Restaurantes', href: '/infos/restaurants' },
         { label: 'Salões', href: '/infos/salon' },
         { label: 'Presentes', href: '/infos/presents' },
+        { label: 'Dresscode', href: '/infos/dress' },
         // { label: 'Como Chegar?', href: '/infos/map' },
         // { label: 'Mais dicas', href: '/infos/tips' },
       ]
@@ -116,6 +117,7 @@ export default function RootLayout(props) {
     //   ]
     // },
     // { label: 'RSVP', href: '/rsvp' },
+    { label: 'Pagamentos', href: '/payment' },
     { label: 'Entre em contato', href: '/contact' },
   ];
 
@@ -227,7 +229,7 @@ export default function RootLayout(props) {
   return (
     <html lang="pt">
       <head>
-        <title>Bu & Gui 👰🤵</title>
+        <title>Bu & Gui 🤵🏻👰🏻‍♀️</title>
       </head>
       <body style={{ margin: 0 }}>
         <ThemeProvider theme={theme}>

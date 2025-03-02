@@ -7,30 +7,23 @@ import {
   List,
   ListItem,
   ListItemText,
-  Button,
+  Link,
   LinearProgress
 } from '@mui/material';
 import GlassCard from '../../(components)/glassCard';
 import HorizontalSeparator from '@/app/(components)/serparator';
 import { useState, useEffect } from 'react';
 
-function formatPrice(priceInCents) {
-  return new Intl.NumberFormat('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-  }).format(priceInCents);
-}
-
 export default function Page() {
-  const [hotelsData, setHotelsData] = useState([])
-  useEffect(() => {
-    fetch('/content/presents.json')
-      .then((response) => response.json())
-      .then((data) => setHotelsData(data))
-      .catch((error) => {
-        console.error('Error fetching JSON:', error);
-      });
-  }, []);
+  // const [hotelsData, setHotelsData] = useState([])
+  // useEffect(() => {
+  //   fetch('/content/hotels.json')
+  //     .then((response) => response.json())
+  //     .then((data) => setHotelsData(data))
+  //     .catch((error) => {
+  //       console.error('Error fetching JSON:', error);
+  //     });
+  // }, []);
 
 
   return (
@@ -59,21 +52,24 @@ export default function Page() {
             }}
           >
             <Typography variant="h4" gutterBottom>
-              Presentes
+              O que vestir?
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-              Será extremamente especial lembrar de cad aum com essas sugestões de presentes que poderemos 
-              "levar" para nossa vida nova! 
-              E desde já a gente agradece!
-              🎁
+              O traje do evento é passeio completo com preferência por vestido longo para as mulheres e blazer para os homens.
+            </Typography>
+
+            <Typography variant="subtitle1" gutterBottom>
+              Essa época em Ouro Preto pode apresentar noites mais frias, por isso recomendamos que vocês levem um cardigâ ou pashmina.
+              No horário da cerimônia temps média de 24 graus, bem tranquilo!
+              Saltos mais baixos, grossos ou anabela são mais recomnedados para o piso do Villa.
             </Typography>
           </Box>
         </CardContent>
       </GlassCard>
 
       <HorizontalSeparator />
-      {
+      {/* {
         hotelsData.length===0 ? <LinearProgress /> :
           <Box sx={{ width: '100%' }}>
 
@@ -88,17 +84,24 @@ export default function Page() {
                 }}
               >
                 {hotelsData.map((hotel) => (
-                  <GlassCard key={hotel.id} sx={{ width: '100%' }} >
+                  <GlassCard key={hotel.name} sx={{ width: '100%' }} >
                     <CardContent >
                       <ListItem alignItems="flex-start">
                         <ListItemText
                           primary={hotel.name}
                           secondary={
-                            <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-                              <Typography variant="body2">{formatPrice(hotel.price)}</Typography>
-                              {/* Insert button to take you to payment */}
-                              <Button variant={'contained'} href={`/payment?id=${hotel.id}`}>Contribuir</Button>
-                            </Box>
+                            <>
+                              <Typography variant="body2">{hotel.address}</Typography>
+                              <Typography variant="body2">{hotel.phone}</Typography>
+                              <Link
+                                href={hotel.link}
+                                target="_blank"
+                                rel="noopener"
+                                variant="body2"
+                              >
+                                {hotel.link}
+                              </Link>
+                            </>
                           }
                         />
                       </ListItem>
@@ -108,7 +111,7 @@ export default function Page() {
               </Box>
             </List>
           </Box>
-      }
+      } */}
     </Box>
   );
 }
