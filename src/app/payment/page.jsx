@@ -10,7 +10,7 @@ import {
 import GlassCard from '../(components)/glassCard';
 import HorizontalSeparator from '@/app/(components)/serparator';
 import { useState, useEffect } from 'react';
-// import { useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 function formatPrice(priceInCents) {
   return new Intl.NumberFormat('pt-BR', {
       style: 'currency',
@@ -21,8 +21,8 @@ function formatPrice(priceInCents) {
 
 export default function Page() {
   const [presents, setPresents] = useState([]);
-  // const searchParams = useSearchParams();
-  // const id = searchParams.get('id');
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id');
 
   useEffect(() => {
     fetch('/content/presents.json')
@@ -33,8 +33,9 @@ export default function Page() {
       });
   }, []);
 
-  // const selectedPresent = presents.find(present => present.id === Number(id));
-  // const price = selectedPresent ? selectedPresent.price : null;
+  const selectedPresent = presents.find(present => present.id === Number(id));
+  const price = selectedPresent ? selectedPresent.price : null;
+
 
   return (
     <Box
