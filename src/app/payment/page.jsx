@@ -101,7 +101,10 @@ export default function Page() {
             Titular: Ruben Marcus Fernandes
           </Typography>
           <Typography variant="body1" gutterBottom>
-            CPF: 769.976.345-72
+            CPF: 769.976.346-72
+          </Typography>
+          <Typography variant="body1" gutterBottom>
+            Chave PIX: 769.976.346-72
           </Typography>
         </CardContent>
       </GlassCard>

@@ -104,12 +104,12 @@ export default function RootLayout(props) {
         { label: 'Hotéis', href: '/infos/hotels' },
         { label: 'Restaurantes', href: '/infos/restaurants' },
         { label: 'Salões', href: '/infos/salon' },
-        { label: 'Presentes', href: '/infos/presents' },
         { label: 'Dresscode', href: '/infos/dress' },
         // { label: 'Como Chegar?', href: '/infos/map' },
         // { label: 'Mais dicas', href: '/infos/tips' },
       ]
     },
+    { label: 'Presentes', href: '/infos/presents' },
     // {
     //   label: 'Presentes', subLinks: [
     //     { label: 'Lista de presentes', href: '/presents' },
