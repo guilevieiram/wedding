@@ -63,7 +63,7 @@ export default function Page() {
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-              Será extremamente especial lembrar de cad aum com essas sugestões de presentes que poderemos 
+              Será extremamente especial lembrar de cada um com essas sugestões de presentes que poderemos 
               "levar" para nossa vida nova! 
               E desde já a gente agradece!
               🎁
