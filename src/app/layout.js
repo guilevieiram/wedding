@@ -118,6 +118,7 @@ export default function RootLayout(props) {
     // },
     // { label: 'RSVP', href: '/rsvp' },
     { label: 'Pagamentos', href: '/payment' },
+    { label: 'RSVP', href: '/rsvp' },
     { label: 'Entre em contato', href: '/contact' },
   ];
 
