@@ -69,3 +69,24 @@ export function listJsonFiles(subdir) {
     return [];
   }
 }
+
+/**
+ * Read and parse **all** JSON files in a subdirectory and return the aggregated records.
+ *
+ * @param {string} subdir - The subdirectory under ~/.data (e.g., 'candidates').
+ * @returns {Object[]} - Array of records parsed from every JSON file. Files that fail to parse are skipped.
+ */
+export function readAllJson(subdir) {
+  try {
+    // Re‑use existing helpers to keep things simple and maintain DRY principles
+    const keys = listJsonFiles(subdir);
+
+    return keys
+      .map((key) => readJson(key, subdir)) // read each record individually
+      .filter((record) => record !== null); // exclude any unreadable / missing files
+  } catch (error) {
+    console.error('Error reading all JSON records:', error);
+    return [];
+  }
+}
+

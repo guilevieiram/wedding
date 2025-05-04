@@ -6,6 +6,7 @@ import GlassCard from '../(components)/glassCard'
 export default function Page() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
+  const [hotel, setHotel] = useState('')
   const [convidados, setConvidados] = useState(0)
   const [kids, setKids] = useState(0)
 
@@ -22,6 +23,7 @@ export default function Page() {
       convidados: parseInt(convidados, 10) || 0,
       kids: parseInt(kids, 10) || 0,
       timestamp: new Date().toISOString(),
+      hotel,
     }
     try {
       const response = await fetch('/api/rsvp', {
@@ -35,29 +37,30 @@ export default function Page() {
 
       if (response.status === 400) {
         const message = result.message
-        setModalMessage(`Nao foi possivel confirmar sua presenca... ${message}`)
+        setModalMessage(`Nâo foi possível confirmar sua presença... ${message}`)
         setIsError(true)
         setModalOpen(true)
         return
       }
 
       if (response.status !== 200) {
-        setModalMessage(`Nao foi possivel confirmar sua presenca...`)
+        setModalMessage(`Nâo foi possível confirmar sua presença...`)
         setIsError(true)
         setModalOpen(true)
         return
       }
 
-      setModalMessage('Sua presenca foi confirmada com sucesso!')
+      setModalMessage('Sua presença foi confirmada com sucesso!')
       setIsError(false)
       setModalOpen(true)
       // Clear form on success
       setFirstName('')
       setLastName('')
+      setHotel('')
       setConvidados('')
       setKids('')
     } catch (error) {
-      setModalMessage('An error occurred while submitting your RSVP. Please contact us for assistance.')
+      setModalMessage('Um erro se passou... Por favor contate-nos para mais informações.')
       setIsError(true)
       setModalOpen(true)
     }
@@ -76,7 +79,7 @@ export default function Page() {
       <GlassCard>
         <CardContent>
           <Typography variant="h5" gutterBottom>
-            Confirme sua presenca!
+            Confirme sua presença!
           </Typography>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -95,18 +98,24 @@ export default function Page() {
               required
             />
             <TextField
-              label="Numero de convidados"
+              label="Número de acompanhantes"
               variant="outlined"
               type="number"
               value={convidados}
               onChange={(e) => setConvidados(e.target.value)}
             />
             <TextField
-              label="Numero de criancas"
+              label="Número de crianças"
               variant="outlined"
               type="number"
               value={kids}
               onChange={(e) => setKids(e.target.value)}
+            />
+            <TextField
+              label="Hotel"
+              variant="outlined"
+              value={hotel}
+              onChange={(e) => setHotel(e.target.value)}
             />
             <Button variant="contained" type="submit">
               Confirmar

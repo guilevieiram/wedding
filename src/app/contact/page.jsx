@@ -13,7 +13,7 @@ import GlassCard from '../(components)/glassCard'
 
 const contactData = [
   {
-    name: 'Gabi Horta (Cerimonialista)',
+    name: 'Gabi Horta (Produtora)',
     tel: '+55 31 98383 2323',
     email: 'contato@gabihortaproducoes.com.br'
   },
