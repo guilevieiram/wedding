@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import { Box, Typography, CardContent, TextField, Button, Modal, Backdrop, Fade, Link } from '@mui/material'
+import { Box, Typography, CardContent, TextField, Button, Modal, Backdrop, Fade, Link, Checkbox, FormControlLabel } from '@mui/material'
 import GlassCard from '../(components)/glassCard'
 
 export default function Page() {
@@ -9,6 +9,7 @@ export default function Page() {
   const [hotel, setHotel] = useState('')
   const [convidados, setConvidados] = useState(0)
   const [kids, setKids] = useState(0)
+  const [needsVan, setNeedsVan] = useState(false)
 
   const [modalOpen, setModalOpen] = useState(false)
   const [modalMessage, setModalMessage] = useState('')
@@ -24,6 +25,7 @@ export default function Page() {
       kids: parseInt(kids, 10) || 0,
       timestamp: new Date().toISOString(),
       hotel,
+      needsVan,
     }
     try {
       const response = await fetch('/api/rsvp', {
@@ -33,7 +35,6 @@ export default function Page() {
       });
 
       const result = await response.json();
-      console.log({ result })
 
       if (response.status === 400) {
         const message = result.message
@@ -53,12 +54,12 @@ export default function Page() {
       setModalMessage('Sua presença foi confirmada com sucesso!')
       setIsError(false)
       setModalOpen(true)
-      // Clear form on success
       setFirstName('')
       setLastName('')
       setHotel('')
       setConvidados('')
       setKids('')
+      setNeedsVan(false)
     } catch (error) {
       setModalMessage('Um erro se passou... Por favor contate-nos para mais informações.')
       setIsError(true)
@@ -116,6 +117,15 @@ export default function Page() {
               variant="outlined"
               value={hotel}
               onChange={(e) => setHotel(e.target.value)}
+            />
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={needsVan}
+                  onChange={(e) => setNeedsVan(e.target.checked)}
+                />
+              }
+              label="Van em OP para transporte ao evento?"
             />
             <Button variant="contained" type="submit">
               Confirmar

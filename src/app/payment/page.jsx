@@ -67,8 +67,7 @@ export default function Page() {
             </Typography>
       {selectedPresent &&
           <Typography variant="body1" gutterBottom>
-            Você escolheu contribuir com {selectedPresent.name}
-            ({formatPrice(selectedPresent.price)})
+            Você escolheu contribuir com {selectedPresent.name} ({formatPrice(selectedPresent.price)})
           </Typography>
       }
           </Box>
