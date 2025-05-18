@@ -46,6 +46,7 @@ export default function Carousel() {
       sx={{
         position: 'relative',
         width: '100%',
+        minHeight: '800px',
         height: '80vh',
         overflow: 'hidden',
       }}
@@ -64,6 +65,7 @@ export default function Carousel() {
             sx={{
               width: '100%',
               height: '80vh',
+              minHeight: '800px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -77,7 +79,7 @@ export default function Carousel() {
                 sx={{
                   width: '100%',
                   height: '100%',
-                  objectFit: 'contain', // keeps the entire image visible
+                  objectFit: 'cover', // keeps the entire image visible
                 }}
               />
             ) : null}
