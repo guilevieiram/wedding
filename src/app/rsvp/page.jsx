@@ -7,8 +7,8 @@ export default function Page() {
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [hotel, setHotel] = useState('')
-  const [convidados, setConvidados] = useState(0)
-  const [kids, setKids] = useState(0)
+  const [convidados, setConvidados] = useState(null)
+  const [kids, setKids] = useState(null)
   const [needsVan, setNeedsVan] = useState(false)
 
   const [modalOpen, setModalOpen] = useState(false)
@@ -95,14 +95,15 @@ export default function Page() {
               label="Sobrenome"
               variant="outlined"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
               required
+              onChange={(e) => setLastName(e.target.value)}
             />
             <TextField
               label="Número de acompanhantes"
               variant="outlined"
               type="number"
               value={convidados}
+              required
               onChange={(e) => setConvidados(e.target.value)}
             />
             <TextField
@@ -110,12 +111,14 @@ export default function Page() {
               variant="outlined"
               type="number"
               value={kids}
+              required
               onChange={(e) => setKids(e.target.value)}
             />
             <TextField
               label="Hotel"
               variant="outlined"
               value={hotel}
+              required
               onChange={(e) => setHotel(e.target.value)}
             />
             <FormControlLabel
@@ -126,6 +129,7 @@ export default function Page() {
                 />
               }
               label="Van em OP para transporte ao evento?"
+              required
             />
             <Button variant="contained" type="submit">
               Confirmar

@@ -33,7 +33,8 @@ export default function RecordsPage() {
       try {
         const res = await fetch("/api/records?subdir=rsvp");
         if (!res.ok) throw new Error("Falha ao buscar registros");
-        const data = await res.json();
+        const data = (await res.json()).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));;
+        console.log(data)
         setRecords(data);
       } catch (err) {
         console.error(err);
