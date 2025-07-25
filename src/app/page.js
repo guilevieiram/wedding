@@ -61,6 +61,23 @@ export default function Page() {
           </CardContent>
         </GlassCard>
 
+        <GlassCard>
+          <CardContent sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+            <Typography variant="h5" gutterBottom>
+              Como Chegar?
+            </Typography>
+            <Typography variant="body2" textAlign={'justify'}>
+Na chegada em Ouro Preto pela Rua Padre Rolim evitar a rota preferencial do Waze, pela rua Henrique Goerceix que é muito íngrime e estreita. 
+            </Typography>
+            <Typography variant="body2" textAlign={'justify'}>
+Seguir e virar à esquerda no museu de Ciência e Tecnologia, pegar a Rua Conselheiro Quintiliano, 
+tomar à esquerda na Rua Quinze de Agosto, 
+entrar na Rua Campo Grande,
+seguir até a Entrada do Vila Relicário que fica a esquerda.
+            </Typography>
+          </CardContent>
+        </GlassCard>
+
         {/* Glass Effect Card */}
         <GlassCard>
           {/* <CardMedia
